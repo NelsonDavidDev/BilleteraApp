@@ -15,6 +15,7 @@ namespace BilleteraApp
     public class Bienvenido : Activity
     {
         Button btnCerrar;
+        Button btnCreatePocket;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -22,10 +23,20 @@ namespace BilleteraApp
 
             // Create your application here
             btnCerrar = FindViewById<Button>(Resource.Id.btnCerrar);
-            btnCerrar.Click += BtnCerrrar_Click;
+            btnCreatePocket = FindViewById<Button>(Resource.Id.btnCreatePocket);
+
+            btnCerrar.Click += BtnCerrar_Click;
+            btnCreatePocket.Click += BtnCreatePocket_Click;
         }
 
-        private void BtnCerrrar_Click(object sender, EventArgs e)
+        private void BtnCreatePocket_Click(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(CreatePocket));
+            StartActivity(i);
+            Finish();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Intent i = new Intent(this, typeof(MainActivity));
             StartActivity(i);

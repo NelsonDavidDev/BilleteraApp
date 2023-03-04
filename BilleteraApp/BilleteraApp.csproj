@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bienvenido.cs" />
+    <Compile Include="CreatePocket.cs" />
     <Compile Include="registro.cs" />
     <Compile Include="conexion.cs" />
     <Compile Include="MainActivity.cs" />
@@ -121,6 +122,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Bienvenido.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CreatePocket.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

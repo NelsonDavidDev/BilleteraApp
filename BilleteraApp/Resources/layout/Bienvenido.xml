@@ -18,6 +18,12 @@
         android:id="@+id/banner"/>
 
     <Button
+        android:text="Crear Bolsillo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCreatePocket" />
+
+    <Button
         android:text="Cerrar sesión"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
