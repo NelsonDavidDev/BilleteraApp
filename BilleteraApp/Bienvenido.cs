@@ -29,6 +29,7 @@ namespace BilleteraApp
         {
             Intent i = new Intent(this, typeof(MainActivity));
             StartActivity(i);
+            Finish();
         }
     }
 }
