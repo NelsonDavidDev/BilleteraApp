@@ -17,6 +17,8 @@ namespace BilleteraApp
         Button btnCerrar;
         Button btnCreatePocket;
         Button btnDeletePocket;
+        Button btnUpdatePocket;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -30,6 +32,7 @@ namespace BilleteraApp
             btnCerrar.Click += BtnCerrar_Click;
             btnCreatePocket.Click += BtnCreatePocket_Click;
             btnDeletePocket.Click += BtnDeletePocket_Click;
+            btnUpdatePocket.Click += BtnUpdatePocket_Click;
         }
 
         private void BtnDeletePocket_Click(object sender, EventArgs e)
@@ -48,6 +51,13 @@ namespace BilleteraApp
         {
             Intent i = new Intent(this, typeof(MainActivity));
             StartActivity(i);
+        }
+
+        private void BtnUpdatePocket_Click(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(UpdatePocket));
+            StartActivity(i);
+            Finish();
         }
     }
 }
