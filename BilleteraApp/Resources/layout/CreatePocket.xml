@@ -26,11 +26,11 @@
             android:layout_marginBottom="16dp" />
  
         <EditText
-            android:id="@+id/txtNuevaClaveUsuario"
+            android:id="@+id/txtDescripcion"
             android:hint="Descripción "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:inputType="textCapWords"
             android:layout_marginBottom="16dp" />
  
         <Button

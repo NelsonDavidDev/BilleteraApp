@@ -28,6 +28,7 @@ namespace BilleteraApp
             btnCerrar = FindViewById<Button>(Resource.Id.btnCerrar);
             btnCreatePocket = FindViewById<Button>(Resource.Id.btnCreatePocket);
             btnDeletePocket = FindViewById<Button>(Resource.Id.btnDeletePocket);
+            btnUpdatePocket = FindViewById<Button>(Resource.Id.btnUpdatePocket);
 
             btnCerrar.Click += BtnCerrar_Click;
             btnCreatePocket.Click += BtnCreatePocket_Click;
@@ -57,7 +58,6 @@ namespace BilleteraApp
         {
             Intent i = new Intent(this, typeof(UpdatePocket));
             StartActivity(i);
-            Finish();
         }
     }
 }
