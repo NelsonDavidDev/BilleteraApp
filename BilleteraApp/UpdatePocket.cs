@@ -22,10 +22,15 @@ namespace BilleteraApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.UpdatePocket);
-            btnUpdatePocket.Click += BtnUpdatePocket_Click;
+            SetContentView(Resource.Layout.UpdatePocket); 
 
             // Create your application here
+
+            btnUpdatePocket.FindViewById<Button>(Resource.Id.btnUpdatePocket);
+            txtNameBolsillo.FindViewById<EditText>(Resource.Id.txtNameBolsillo);
+            txtDescription.FindViewById<EditText>(Resource.Id.txtDescription);
+
+            btnUpdatePocket.Click += BtnUpdatePocket_Click;
         }
 
         private void BtnUpdatePocket_Click(object sender, EventArgs e)
