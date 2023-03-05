@@ -37,6 +37,7 @@ namespace BilleteraApp
                 {
                     new Auxiliar().Guardar(new Login() { Id = 0, Usuario = txtNuevoUsuario.Text.Trim(), Password = txtNuevaClaveUsuario.Text.Trim() });
                     Toast.MakeText(this, "Registro guardado", ToastLength.Long).Show();
+                    Finish();
                 }
                 else
                 {

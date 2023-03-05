@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Bienvenido.cs" />
     <Compile Include="CreatePocket.cs" />
+    <Compile Include="DeletePocket.cs" />
     <Compile Include="registro.cs" />
     <Compile Include="conexion.cs" />
     <Compile Include="MainActivity.cs" />
@@ -105,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl">
@@ -127,6 +129,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CreatePocket.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DeletePocket.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
