@@ -9,6 +9,13 @@
     android:minHeight="25px"
     android:orientation="vertical">
 
+    <Toolbar
+    android:minHeight="?android:attr/actionBarSize"
+    android:background="?android:attr/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/toolbarMenu"/>
+
     <TextView
         android:text="Bienvenido"
         android:textSize="90px"

@@ -18,6 +18,7 @@ namespace BilleteraApp
         Button btnCreatePocket;
         Button btnDeletePocket;
         Button btnUpdatePocket;
+        Toolbar toolbarmenu;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,11 +30,34 @@ namespace BilleteraApp
             btnCreatePocket = FindViewById<Button>(Resource.Id.btnCreatePocket);
             btnDeletePocket = FindViewById<Button>(Resource.Id.btnDeletePocket);
             btnUpdatePocket = FindViewById<Button>(Resource.Id.btnUpdatePocket);
+            toolbarmenu = FindViewById<Toolbar>(Resource.Id.toolbarMenu);
+
+            SetActionBar(toolbarmenu);
+            ActionBar.Title = "Menu";
 
             btnCerrar.Click += BtnCerrar_Click;
             btnCreatePocket.Click += BtnCreatePocket_Click;
             btnDeletePocket.Click += BtnDeletePocket_Click;
             btnUpdatePocket.Click += BtnUpdatePocket_Click;
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.icAdd:
+                    Intent i = new Intent(this, typeof(CreatePocket));
+                    StartActivity(i);
+                    break;
+                default:
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
         private void BtnDeletePocket_Click(object sender, EventArgs e)
