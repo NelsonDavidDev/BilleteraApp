@@ -31,12 +31,9 @@ namespace BilleteraApp
 
         private void BtnUpdatePocket_Click(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(UpdatePocket));
-            StartActivity(i);
-
             try
             {
-                if (!string.IsNullOrEmpty(txtNameBolsillo.Text.Trim()) || !string.IsNullOrEmpty(txtDescription.Text.Trim()))
+                if (!string.IsNullOrEmpty(txtNameBolsillo.Text.Trim()) && !string.IsNullOrEmpty(txtDescription.Text.Trim()))
                 {
                     Toast.MakeText(this, "Registro Actualizado", ToastLength.Long).Show();
                     Finish();

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content" />
  
         <EditText
-            android:id="@+id/txtNameBolsillo"
+            android:id="@+id/txtName"
             android:hint="Nombre Bolsillo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_marginBottom="16dp" />
  
         <Button
-            android:id="@+id/btnRegistrarUsuarioNuevo"
+            android:id="@+id/btnCreate"
             android:text="Crear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
