@@ -11,26 +11,22 @@ using System.Text;
 
 namespace BilleteraApp
 {
-    [Activity(Label = "updatePocket")]
+    [Activity(Label = "UpdatePocket")]
     public class UpdatePocket : Activity
-
-
     {
-        Button btnUpdatePocket;
         EditText txtNameBolsillo;
         EditText txtDescription;
+        Button btnUpdate;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.UpdatePocket); 
+            SetContentView(Resource.Layout.UpdatePocket);
 
-            // Create your application here
+            txtNameBolsillo = FindViewById<EditText>(Resource.Id.txtNameBolsillo);
+            txtDescription = FindViewById<EditText>(Resource.Id.txtDescription);
+            btnUpdate = FindViewById<Button>(Resource.Id.btnUpdate);
 
-            btnUpdatePocket.FindViewById<Button>(Resource.Id.btnUpdatePocket);
-            txtNameBolsillo.FindViewById<EditText>(Resource.Id.txtNameBolsillo);
-            txtDescription.FindViewById<EditText>(Resource.Id.txtDescription);
-
-            btnUpdatePocket.Click += BtnUpdatePocket_Click;
+            btnUpdate.Click += BtnUpdatePocket_Click;
         }
 
         private void BtnUpdatePocket_Click(object sender, EventArgs e)
@@ -55,7 +51,5 @@ namespace BilleteraApp
                 Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
         }
-
-
     }
 }
