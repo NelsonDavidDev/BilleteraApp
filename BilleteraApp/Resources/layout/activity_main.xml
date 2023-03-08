@@ -33,11 +33,13 @@
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:id="@+id/btnIngreso" />
     <Button
         android:text="Create account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:id="@+id/btnRegistar" />
 
 </LinearLayout>

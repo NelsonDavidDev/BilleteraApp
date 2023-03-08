@@ -14,6 +14,7 @@ namespace BilleteraApp
     [Activity(Label = "Bienvenido")]
     public class Bienvenido : Activity
     {
+        Button btnReadPocket;
         Button btnCerrar;
         Button btnCreatePocket;
         Button btnDeletePocket;
@@ -26,6 +27,7 @@ namespace BilleteraApp
             SetContentView(Resource.Layout.Bienvenido);
 
             // Create your application here
+            btnReadPocket = FindViewById<Button>(Resource.Id.btnReadPocket);
             btnCerrar = FindViewById<Button>(Resource.Id.btnCerrar);
             btnCreatePocket = FindViewById<Button>(Resource.Id.btnCreatePocket);
             btnDeletePocket = FindViewById<Button>(Resource.Id.btnDeletePocket);
@@ -35,10 +37,17 @@ namespace BilleteraApp
             SetActionBar(toolbarmenu);
             ActionBar.Title = "Menu";
 
+            btnReadPocket.Click += BtnReadPocket_Click;
             btnCerrar.Click += BtnCerrar_Click;
             btnCreatePocket.Click += BtnCreatePocket_Click;
             btnDeletePocket.Click += BtnDeletePocket_Click;
             btnUpdatePocket.Click += BtnUpdatePocket_Click;
+        }
+
+        private void BtnReadPocket_Click(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(ReadPocket));
+            StartActivity(i);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
