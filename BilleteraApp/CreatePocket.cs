@@ -18,6 +18,7 @@ namespace BilleteraApp
         EditText txtName;
         EditText txtDescription;
         Button btnCreate;
+        EditText txtvalue;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -27,6 +28,7 @@ namespace BilleteraApp
             txtName = FindViewById<EditText>(Resource.Id.txtName);
             txtDescription = FindViewById<EditText>(Resource.Id.txtDescription);    
             btnCreate = FindViewById<Button>(Resource.Id.btnCreate);
+            txtvalue = FindViewById<EditText>(Resource.Id.txtValue);
 
             btnCreate.Click += BtnCreate_Click;
         }
@@ -35,8 +37,18 @@ namespace BilleteraApp
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtDescription.Text.Trim()))
+                if (!string.IsNullOrEmpty(txtName.Text.Trim()))
                 {
+                    new Auxiliar().GuardarPocket(new Pocket()
+                    {
+                        Id = 0,
+                        NombreBolsillo = txtName.Text.Trim(),
+                        Descripcion = txtDescription.Text.Trim(),
+                        Valor = double.Parse(txtvalue.Text.Trim())
+                    });
+                    txtName.Text = "";
+                    txtDescription.Text = "";
+                    txtvalue.Text = "";
                     Toast.MakeText(this, "Bolsillo Creado", ToastLength.Long).Show();
                     Finish();
                 }

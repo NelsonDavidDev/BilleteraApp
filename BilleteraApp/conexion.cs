@@ -30,9 +30,21 @@ namespace BilleteraApp
         public string Password { get; set; }
     }
     #endregion
-    public class Ticket { 
+
+    #region Uso de datos para crear bolsillo
+    public class Pocket { 
+
+        public Pocket() {}
+
+        [PrimaryKey, AutoIncrement]
+        public int Id { set; get; }
+        [MaxLength(20)]
+        public string NombreBolsillo { get; set; }
+        public string Descripcion { get; set; }
+        public double Valor { get; set; }
         
         }
+    #endregion
 
     #region Manejo de datos y conexion a BD
     public class Auxiliar
@@ -44,6 +56,7 @@ namespace BilleteraApp
         {
             conexion = Conectar();
             conexion.CreateTable<Login>();
+            conexion.CreateTable<Pocket>();
         }
 
         public SQLite.SQLiteConnection Conectar()
@@ -55,7 +68,7 @@ namespace BilleteraApp
             conexionAuxiliar = new SQLiteConnection(rutaCompleta);
             return conexionAuxiliar;
         }
-        //Seleccionar muchos
+        //Seleccionar todos los usuarios
         public IEnumerable<Login> SeleccionarTodo()
         {
             lock (locker)
@@ -63,7 +76,7 @@ namespace BilleteraApp
                 return (from i in conexion.Table<Login>() select i).ToList();
             }
         }
-        //Seleccionar un registro
+        //Seleccionar un usuario
         public Login Seleccionar(string UserName, string PassWord)
         {
             lock (locker)
@@ -71,7 +84,23 @@ namespace BilleteraApp
                 return conexion.Table<Login>().FirstOrDefault(x => x.Usuario == UserName && x.Password == PassWord);
             }
         }
-        //Actualizar o insertar
+        //Seleccionar un poket
+        public Pocket SeleccionarUno (int Id)
+        {
+            lock (locker)
+            {
+                return conexion.Table<Pocket>().FirstOrDefault(x => x.Id == Id);
+            }
+        }
+        //Seleccionar todos los poket
+        public IEnumerable<Pocket> SeleccionarTodosLosPockets()
+        {
+            lock (locker)
+            {
+                return (from i in conexion.Table<Pocket>() select i).ToList();
+            }
+        }
+        //Actualizar o insertar usuario
         public int Guardar(Login registro)
         {
             lock (locker)
@@ -86,13 +115,38 @@ namespace BilleteraApp
                 }
             }
         }
-        
-            //Eliminar
+
+        //Guardar o actualizar Poket
+        public int GuardarPocket(Pocket registro)
+        {
+            lock (locker)
+            {
+                if (registro.Id == 0)
+                {
+                    return conexion.Insert(registro);
+                }
+                else
+                {
+                    return conexion.Update(registro);
+                }
+            }
+        }
+
+        //Eliminar usuario
         public int Eliminar(int ID)
         {
             lock (locker)
             {
                 return conexion.Delete<Login>(ID);
+            }
+        }
+
+        //Eliminar pocket
+        public int EliminarPocket(int ID)
+        {
+            lock (locker)
+            {
+                return conexion.Delete<Pocket>(ID);
             }
         }
     }
