@@ -14,12 +14,16 @@ namespace BilleteraApp
     [Activity(Label = "ReadPocket")]
     public class ReadPocket : Activity
     {
+        public List<Pocket> listaDePockets;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ReadPocket);
 
             // Create your application here
+
+            listaDePockets = new Auxiliar().SeleccionarTodosLosPockets().ToList();
         }
+       
     }
 }
