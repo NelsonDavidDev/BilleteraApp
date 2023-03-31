@@ -14,8 +14,10 @@ namespace BilleteraApp
     [Activity(Label = "UpdatePocket")]
     public class UpdatePocket : Activity
     {
+        EditText txtIdPocket;
         EditText txtNameBolsillo;
         EditText txtDescription;
+        EditText txtValue;
         Button btnUpdate;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,7 +26,20 @@ namespace BilleteraApp
 
             txtNameBolsillo = FindViewById<EditText>(Resource.Id.txtNameBolsillo);
             txtDescription = FindViewById<EditText>(Resource.Id.txtDescription);
+            txtValue = FindViewById<EditText>(Resource.Id.txtValue);
+            txtIdPocket = FindViewById<EditText>(Resource.Id.txtIdPocket);
             btnUpdate = FindViewById<Button>(Resource.Id.btnUpdate);
+
+            //Recuperar datos de la vista anterior
+            var pocketId = Intent.GetStringExtra("pocketId");
+            var pocketName = Intent.GetStringExtra("pocketName");
+            var pocketDesc = Intent.GetStringExtra("pocketDesc");
+            var pocketValue = Intent.GetStringExtra("pocketValue");
+
+            txtIdPocket.Text = pocketId;
+            txtNameBolsillo.Text += pocketName;
+            txtDescription.Text = pocketDesc;
+            txtValue.Text = pocketValue;
 
             btnUpdate.Click += BtnUpdatePocket_Click;
         }
@@ -35,8 +50,27 @@ namespace BilleteraApp
             {
                 if (!string.IsNullOrEmpty(txtNameBolsillo.Text.Trim()) && !string.IsNullOrEmpty(txtDescription.Text.Trim()))
                 {
-                    Toast.MakeText(this, "Registro Actualizado", ToastLength.Long).Show();
-                    Finish();
+                    try
+                    {
+                        new Auxiliar().GuardarPocket(new Pocket()
+                        {
+                            Id = Int32.Parse(txtIdPocket.Text.Trim()),
+                            NombreBolsillo = txtNameBolsillo.Text.Trim(),
+                            Descripcion = txtDescription.Text.Trim(),
+                            Valor = double.Parse(txtValue.Text.Trim())
+                        });
+
+                        Toast.MakeText(this, "Bolsillo Actualizado", ToastLength.Long).Show();
+                        Finish();
+                        Intent i = new Intent(this, typeof(ReadPocket));
+                        StartActivity(i);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Toast.MakeText(this, ex.ToString(), ToastLength.Long).Show();
+                    }
+                   
                 }
                 else
                 {

@@ -41,22 +41,6 @@
         android:id="@+id/btnCreatePocket" />
 
     <Button
-        android:text="Editar Bolsillo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:layout_margin="5dp"
-        android:id="@+id/btnUpdatePocket" />
-
-    <Button
-        android:text="Eliminar Bolsillo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:layout_margin="5dp"
-        android:id="@+id/btnDeletePocket" />
-
-    <Button
         android:text="Cerrar sesión"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

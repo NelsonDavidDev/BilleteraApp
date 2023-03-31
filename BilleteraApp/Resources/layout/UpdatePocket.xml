@@ -17,6 +17,15 @@
         android:layout_height="wrap_content" />
 
     <EditText
+        android:id="@+id/txtIdPocket"
+        android:hint="Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
         android:id="@+id/txtNameBolsillo"
         android:hint="Nombre Bolsillo"
         android:layout_width="match_parent"
@@ -32,6 +41,14 @@
         android:layout_height="wrap_content"
         android:inputType="textCapWords"
         android:layout_marginBottom="16dp" />
+
+    <EditText
+            android:id="@+id/txtValue"
+            android:hint="Valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnUpdate"

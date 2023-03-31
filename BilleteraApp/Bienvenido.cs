@@ -17,8 +17,6 @@ namespace BilleteraApp
         Button btnReadPocket;
         Button btnCerrar;
         Button btnCreatePocket;
-        Button btnDeletePocket;
-        Button btnUpdatePocket;
         Toolbar toolbarmenu;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,8 +28,6 @@ namespace BilleteraApp
             btnReadPocket = FindViewById<Button>(Resource.Id.btnReadPocket);
             btnCerrar = FindViewById<Button>(Resource.Id.btnCerrar);
             btnCreatePocket = FindViewById<Button>(Resource.Id.btnCreatePocket);
-            btnDeletePocket = FindViewById<Button>(Resource.Id.btnDeletePocket);
-            btnUpdatePocket = FindViewById<Button>(Resource.Id.btnUpdatePocket);
             toolbarmenu = FindViewById<Toolbar>(Resource.Id.toolbarMenu);
 
             SetActionBar(toolbarmenu);
@@ -40,8 +36,6 @@ namespace BilleteraApp
             btnReadPocket.Click += BtnReadPocket_Click;
             btnCerrar.Click += BtnCerrar_Click;
             btnCreatePocket.Click += BtnCreatePocket_Click;
-            btnDeletePocket.Click += BtnDeletePocket_Click;
-            btnUpdatePocket.Click += BtnUpdatePocket_Click;
         }
 
         private void BtnReadPocket_Click(object sender, EventArgs e)
@@ -69,12 +63,6 @@ namespace BilleteraApp
             return base.OnOptionsItemSelected(item);
         }
 
-        private void BtnDeletePocket_Click(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(DeletePocket));
-            StartActivity(i);
-        }
-
         private void BtnCreatePocket_Click(object sender, EventArgs e)
         {
             Intent i = new Intent(this, typeof(CreatePocket));
@@ -84,12 +72,6 @@ namespace BilleteraApp
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Intent i = new Intent(this, typeof(MainActivity));
-            StartActivity(i);
-        }
-
-        private void BtnUpdatePocket_Click(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(UpdatePocket));
             StartActivity(i);
         }
     }

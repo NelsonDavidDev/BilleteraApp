@@ -1,40 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
-    <Button
-        android:text="Mibolsillo1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:textColor="@color/white"
-        android:layout_margin="5dp"
-        android:id="@+id/btnReadPocket1" />
-    <Button
-        android:text="Mibolsillo2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:textColor="@color/white"
-        android:layout_margin="5dp"
-        android:id="@+id/btnReadPocket2" />
-    <Button
-        android:text="Mibolsillo3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:textColor="@color/white"
-        android:layout_margin="5dp"
-        android:id="@+id/btnReadPocket3" />
-    <Button
-        android:text="Mibolsillo4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:textColor="@color/white"
-        android:layout_margin="5dp"
-        android:id="@+id/btnReadPocket4"/>
 
-</LinearLayout>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout_pockets">
+
+        <TextView
+            android:id="@+id/textview_nombre"
+            android:layout_marginTop="25dp"
+            android:visibility="gone"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9DA4D0"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textview_descripcion"
+            android:textSize="25sp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9DA4D0"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textview_value"
+            android:textSize="25sp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9DA4D0"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#9DA4D0"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_update"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Actualizar"
+                android:layout_marginLeft="70dp"
+                android:layout_alignParentEnd="true"/>
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:visibility="gone"
+                android:backgroundTint="#FF5733"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Eliminar"
+                android:layout_toStartOf="@id/btn_update"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+</ScrollView>
