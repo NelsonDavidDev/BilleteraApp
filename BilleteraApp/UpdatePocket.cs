@@ -37,6 +37,7 @@ namespace BilleteraApp
             var pocketValue = Intent.GetStringExtra("pocketValue");
 
             txtIdPocket.Text = pocketId;
+            txtIdPocket.Visibility = ViewStates.Invisible;
             txtNameBolsillo.Text += pocketName;
             txtDescription.Text = pocketDesc;
             txtValue.Text = pocketValue;
