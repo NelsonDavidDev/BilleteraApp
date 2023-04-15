@@ -41,6 +41,14 @@
         android:id="@+id/btnCreatePocket" />
 
     <Button
+        android:text="Web Service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:layout_margin="5dp"
+        android:id="@+id/btnWebService" />
+
+    <Button
         android:text="Cerrar sesión"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

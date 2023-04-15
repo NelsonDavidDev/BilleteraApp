@@ -17,6 +17,7 @@ namespace BilleteraApp
         Button btnReadPocket;
         Button btnCerrar;
         Button btnCreatePocket;
+        Button btnWebService;
         Toolbar toolbarmenu;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -28,6 +29,7 @@ namespace BilleteraApp
             btnReadPocket = FindViewById<Button>(Resource.Id.btnReadPocket);
             btnCerrar = FindViewById<Button>(Resource.Id.btnCerrar);
             btnCreatePocket = FindViewById<Button>(Resource.Id.btnCreatePocket);
+            btnWebService = FindViewById<Button>(Resource.Id.btnWebService);
             toolbarmenu = FindViewById<Toolbar>(Resource.Id.toolbarMenu);
 
             SetActionBar(toolbarmenu);
@@ -36,6 +38,13 @@ namespace BilleteraApp
             btnReadPocket.Click += BtnReadPocket_Click;
             btnCerrar.Click += BtnCerrar_Click;
             btnCreatePocket.Click += BtnCreatePocket_Click;
+            btnWebService.Click += BtnWebService_Click;
+        }
+
+        private void BtnWebService_Click(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(WebService));
+            StartActivity(i);
         }
 
         private void BtnReadPocket_Click(object sender, EventArgs e)
